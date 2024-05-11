@@ -1,0 +1,20 @@
+<!-- navbar.html -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+<div class="top-navbar">
+    <img src="{% static 'images/ATDC-logo-01-01.png' %}" alt="Image 1" class="navbar-image">
+   
+    <nav class="navbar-links">
+        <a href="{% url 'index' %}" class="nav-link">Home</a>
+        <a href="{% url 'farmer' %}" class="nav-link">About Us</a>
+        <a href="{% url 'centres' %}" class="nav-link">Agritourism Centres</a>
+        <a href="{% url 'lend_a_farm' %}" class="nav-link">Lend a Farm</a>
+        <a href="{% url 'products' %}" class="nav-link">Buy Products</a>
+        <a href="{% url 'blog' %}" class="nav-link">Blogs And News</a>
+        <a href="#" class="nav-link">Contact Us</a>
+        {% if user.is_authenticated %}
+            <span class="nav-link">Welcome, {{ user.username }}</span>
+        {% endif %}
+    </nav>
+</div>

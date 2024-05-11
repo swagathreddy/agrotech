@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Mart</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="static/css/global.css">
+    <link rel="stylesheet" href="static/css/styles.css"> <!-- Your existing styles -->
+    <style>
+        /* Online Mart Styles */
+
+.online-mart-container {
+    display: flex;
+}
+
+.items-pane, .cart-pane {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    display: ruby;
+    
+}
+.items-pane{
+    background-image: url('/static/images/bgimage.png');
+}
+.item {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 40%;
+    background-color: #fff;
+}
+
+.item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-pane {
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    display: ruby;
+    background-color: #7ef05c;
+}
+
+.cart-item {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: white;
+}
+.cart-item img{
+    width: 30%;
+}
+.total-price {
+    font-weight: bold;
+    text-align: right;
+}
+.checkout-btn {
+    background-color: #d9792a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+    display: block;
+}
+.checkout-btn:hover{
+    background-color: #1f9c3c;
+}
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div id="navbar-container">
+        {% include 'navbar2.html' %}
+    </div>
+
+    <main class="online-mart-container">
+        <!-- Items Pane -->
+        <div class="items-pane">
+            <div class="item" data-id="1">
+                <img src="{% static 'images/apple.jpg' %}" alt="Product 1">
+                <h3>Apple</h3>
+                <p>Price: ₹100.00</p>
+                <button class="add-to-cart-btn">Add</button>
+            </div>
+            <div class="item" data-id="1">
+                <img src="{% static 'images/banana.jpg' %}" alt="Product 1">
+                <h3>Banana</h3>
+                <p>Price: ₹50.00</p>
+                <button class="add-to-cart-btn">Add</button>
+            </div>
+            <div class="item" data-id="1">
+                <img src="{% static 'images/rice.jpg' %}" alt="Product 1">
+                <h3>Rice(1Kg)</h3>
+                <p>Price: ₹45.00</p>
+                <button class="add-to-cart-btn">Add</button>
+            </div>
+            <div class="item" data-id="1">
+                <img src="{% static 'images/carrot.cms' %}" alt="Product 1">
+                <h3>Carrot</h3>
+                <p>Price: ₹30.00</p>
+                <button class="add-to-cart-btn">Add</button>
+            </div>
+            <div class="item" data-id="1">
+                <img src="{% static 'images/potato.webp' %}" alt="Product 1">
+                <h3>Potato</h3>
+                <p>Price: ₹25.00</p>
+                <button class="add-to-cart-btn">Add</button>
+            </div>
+        </div>
+
+        <!-- Cart Pane -->
+        <div class="cart-pane">
+            <h2>Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="total-price">
+                Total Price: <span class="total-amount">₹0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartItems = document.querySelector('.cart-items');
+            let totalPrice = 0;
+        
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const item = button.parentElement;
+                    const itemId = item.getAttribute('data-id');
+                    const itemName = item.querySelector('h3').innerText;
+                    const itemPrice = parseFloat(item.querySelector('p').innerText.split('₹')[1]);
+                    
+                    // Create cart item
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <img src="${item.querySelector('img').src}" alt="${itemName}">
+                        <h4>${itemName}</h4>
+                        <p>Price: $${itemPrice.toFixed(2)}</p>
+                    `;
+                    
+                    cartItems.appendChild(cartItem);
+        
+                    // Update total price
+                    totalPrice += itemPrice;
+                    document.querySelector('.total-amount').innerText = `₹${totalPrice.toFixed(2)}`;
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>

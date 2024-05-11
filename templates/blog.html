@@ -1,0 +1,109 @@
+<!-- blog.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs and News</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"<link> <!-- Your existing styles -->
+    <style>
+        body {
+            background-image: url('./static/images/1691152886310.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 800px; /* Limit container width */
+            margin: 0 auto; /* Center container horizontally */
+            padding: 20px;
+        }
+    
+        /* Blog Post Styles */
+        .blog-post {
+            margin-bottom: 20px; /* Add space between blog posts */
+        }
+    
+        /* Blog Content Styles */
+        .blog-content {
+            background-color: rgba(255, 255, 255, 0.8); /* Add semi-transparent white background to blog content */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    
+        /* Blog Title Styles */
+        .blog-content h3 {
+            margin-top: 0; /* Remove top margin for blog title */
+            margin-bottom: 10px; /* Add bottom margin for spacing */
+        }
+    
+        /* Blog Content Paragraph Styles */
+        .blog-content p {
+            margin-bottom: 15px; /* Add bottom margin for spacing */
+        }
+    
+        /* Read More Link Styles */
+        .read-more {
+            color: #249ccf; /* Set link color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Make text bold */
+            display: inline-block; /* Make link behave like a block element */
+            border-bottom: 1px solid transparent; /* Add bottom border */
+        }
+    
+        .read-more:hover {
+            border-bottom-color: #249ccf; /* Change border color on hover */
+        }
+
+        .write-blog-button {
+            position: absolute;
+            bottom: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+        }
+
+        .write-blog-button a {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Remove default underline */
+        }
+
+        .write-blog-button a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container">
+        {% include 'navbar.html' %}
+    </div>
+
+    <main>
+        <div class="container">
+            <h2>Blogs and News</h2>
+            <div class="blog-posts">
+                {% for blog in blogs %}
+                <div class="blog-post">
+                    <div class="blog-content">
+                        <h3>Title:{{ blog.title }}</h3>
+                        
+                        <p>Content:{{ blog.content }}</p>
+                        <!-- You can add more details here if needed -->
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main> 
+
+    <div class="write-blog-button">
+        <a href="{% url 'write_blog' %}">Do you want to write a blog?</a>
+    </div></body>
+</html>

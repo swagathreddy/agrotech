@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lend a Farm</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="static/css/global.css">
+    <link rel="stylesheet" href="static/css/styles.css"> <!-- Your existing styles -->
+    <style>
+        /* Additional styles for Lend a Farm page */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px 130px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div id="navbar-container">
+        {% include 'navbar.html' %}
+    </div>
+
+    <main>
+        <div class="container">
+            <h2>Lend Your Farm for Weekend Farming</h2>
+            <p>Are you a farmer interested in sharing your farm for weekend farming experiences? Fill out the form below to provide details about yourself and your farm.</p>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="farm-name">Farm Name:</label>
+                <input type="text" id="farm-name" name="farm-name" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="type-of-soil">Type of Soil:</label>
+                <input type="text" id="type-of-soil" name="type-of-soil" required>
+
+                <label for="type-of-crop">Type of Crop:</label>
+                <input type="text" id="type-of-crop" name="type-of-crop" required>
+
+                <label for="description">Brief Description of Your Farm:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main> 
+</body>
+</html>

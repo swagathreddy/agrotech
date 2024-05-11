@@ -1,0 +1,79 @@
+<!-- centres.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agritourism Centres</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+    <style>
+        .farm-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .farm-image {
+            width: 30%;
+            height: 50%;
+            margin-right: 30px;
+            margin-top: 100px;
+        }
+        
+        .farm-details {
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .content-block{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <div id="navbar-container">
+        {% include 'navbar.html' %}
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Farm Details Section -->
+        <div class="content-block">
+            {% for farm in farms %}
+            <div class="farm-container">
+                <img class="farm-image" src="https://www.nobroker.in/blog/wp-content/uploads/2023/01/Types-Of-Land-Zoning-1.jpg">
+                <div class="farm-details">
+                    <h2>{{ farm.farm_name }}</h2>
+                    <p><strong>Farmer Name:</strong> {{ farm.name }}</p>
+                    <p><strong>Email:</strong> {{ farm.email }}</p>
+                    <p><strong>Phone:</strong> {{ farm.phone }}</p>
+                    <p><strong>Location:</strong> {{ farm.location }}</p>
+                    <p><strong>Type of Soil:</strong> {{ farm.type_of_soil }}</p>
+                    <p><strong>Type of Crop:</strong> {{ farm.type_of_crop }}</p>
+                    <p><strong>Description:</strong> {{ farm.description }}</p>
+                    <a href="http://localhost:8080/" class="btn btn">Book Now</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+</body>
+</html>

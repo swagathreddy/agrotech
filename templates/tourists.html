@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourists</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"> <!-- Your existing styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div id="navbar-container">
+        {% include 'navbar2.html' %}
+    </div>
+
+    <main>
+    <div class="container">
+            <div class="section">
+                <h2>Welcome to the Magical World of AgriTourism</h2>
+                <div class="section-content">
+                    <div class="text-content">
+                        <p>Experience the enchanting blend of agriculture and tourism with us! Dive into the heart of rural life, work in the fields, and gain hands-on experience in farming. Whether you're a nature enthusiast, an adventurous traveler, or simply looking to disconnect and rejuvenate, AgriTourism offers a unique opportunity to connect with nature, learn about sustainable farming practices, and immerse yourself in the local culture.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="{% static 'images/What-to-Know-About-Agritourism-and-Sustainability.webp' %}" alt="AgriTourism" class="section-image">
+                    </div>
+                </div>
+            </div>
+        
+        <div class="section">
+            <h2>About Agritourism</h2>
+            <p>Agritourism combines agriculture and tourism, offering visitors a unique experience to learn about farming practices, local culture, and enjoy nature.</p>
+        </div>
+
+        <div class="section why-atdc-section">
+            <h2>Why Choose ATDC?</h2>
+            <div class="grid-container">
+                <!-- Point 1 -->
+                <div class="grid-item">
+                    <h3>Find an Agritourism Center</h3>
+                    <p>Explore a variety of agritourism centers to experience rural life firsthand.</p>
+                </div>
+                <!-- Point 2 -->
+                <div class="grid-item">
+                    <h3>Enjoy Your Adventure</h3>
+                    <p>Get personalized experiences with expert local guides or opt for self-guided rentals.</p>
+                </div>
+                <!-- Point 3 -->
+                <div class="grid-item">
+                    <h3>Book Your Trip</h3>
+                    <p>Securely book your preferred center online with options for card, netbanking, or UPI payments.</p>
+                </div>
+                <!-- Point 4 -->
+                <div class="grid-item">
+                    <h3>Personalized Services</h3>
+                    <p>Choose a yacht with or without a captain and enjoy additional facilities.</p>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="section agritourism-centres-section">
+            <h2>Agritourism Centres</h2>
+            <p>Explore our agritourism centres and enjoy activities like farm tours, workshops, and more.</p>
+            <a href="{% url 'centres' %}" class="explore-more-btn">Explore More</a>
+        </div>
+
+            <footer class="footer">
+                <div class="footer-logo">
+                    <a href="https://agritourism.in">
+                        <img src="{% static 'images/ATDC-logo-01-01.png' %}" alt="Agritourism India">
+                    </a>
+                </div>
+                <div class="footer-text">
+                    <p>Keep Farm In The Family, Family In The Farm</p>
+                    <p>Connect with us:</p>
+                </div>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/AgriTourismIndia/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/agritourismindia/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://twitter.com/PandurangTaware" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/agritourismindia/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCMQawFaee-k4Kw6t5zqI9Dg" target="_blank"><i class="fa fa-youtube"></i></a>
+                </div>
+                <div class="footer-text">
+                    <p>Working Hours:</p>
+                    <p>Monday - Saturday: 10:00 am - 07:00 pm</p>
+                </div>
+                <div class="footer-text">
+                    <p>Contact Us: +91-9226432980</p>
+                </div>
+                <div class="footer-text">
+                    <p>Copyright © 2024 Agritourism India. All rights reserved.</p>
+                    <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Support</a></p>
+                </div>
+            </footer>
+            
+            
+    </main> 
+
+</body>
+</html>

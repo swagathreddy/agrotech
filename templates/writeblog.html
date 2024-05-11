@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Blog</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="static/css/global.css">
+    <link rel="stylesheet" href="static/css/styles.css"> <!-- Your existing styles -->
+    <style>
+        /* Additional styles for Write a Blog page */
+        body {
+            background-image: url('./static/images/1691152886310.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity if needed */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div id="navbar-container"></div>
+
+    <main>
+        <div id="navbar-container">
+            {% include 'navbar.html' %}
+        </div>
+        <div class="content-container">
+            <h2>Write Your Blog</h2>
+            <form action="{% url 'write_blog' %}" method="post">
+                {% csrf_token %}
+
+                <label for="blog-title">Blog Title:</label>
+                <input type="text" id="blog-title" name="blog-title" required>
+
+                <label for="blog-content">Blog Content:</label>
+                <textarea id="blog-content" name="blog-content" rows="8" required></textarea>
+
+                
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main> 
+    
+</body>
+</html>
