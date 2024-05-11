@@ -1,6 +1,5 @@
 Django==4.2.7
-django-storages==1.14.2
-django-templatetags==1.0
 mysql-connector==2.2.9
 mysql-connector-python==8.2.0
 psycopg2-binary==2.9.9
+Pillow==9.5.0
