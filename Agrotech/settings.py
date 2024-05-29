@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'Agrotech.wsgi.application'
 
 DATABASES = {
    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE':'django.db.backends.postgresql',
         'NAME': 'railway',
         "USER":'postgres',
-        "PASSWORD":"alqzavJLTRUaAilhrBXkrEOPAdcCseJo",
-        "HOST":"monorail.proxy.rlwy.net",
-        "PORT":"23767",
+        "PASSWORD":"hznXamxgnqOyzmdBtMfiGYxClNPNjoUf",
+        "HOST":"viaduct.proxy.rlwy.net",
+        "PORT":"47065",
     }
 }
 
