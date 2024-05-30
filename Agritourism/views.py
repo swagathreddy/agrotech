@@ -88,12 +88,18 @@ def register_farmer(request):
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 
+from django.contrib.auth import authenticate, login as auth_login
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
+from .models import Farmer  # Import the Farmer model
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        # Authenticate the user
+        # Authenticate the user against the default User model
         user = authenticate(username=username, password=password)
 
         if user is not None:
@@ -101,12 +107,20 @@ def login(request):
             auth_login(request, user)
             return redirect('farmer')  # Redirect to farmer page after successful login
         else:
-            # User authentication failed, show error message
-            messages.error(request, 'Invalid username or password')
-            return redirect('login')  # Redirect to login page with error message
+            # Check if the username and password match in the Farmer model
+            try:
+                farmer = Farmer.objects.get(username=username, password=password)
+                # If a match is found, create a session or perform required login actions
+                request.session['farmer_id'] = farmer.id
+                request.session['farmer_username'] = farmer.username
+                return redirect('farmer')  # Redirect to farmer page after successful login
+            except Farmer.DoesNotExist:
+                # If no match found in Farmer model, show error message
+                messages.error(request, 'Invalid username or password')
+                return redirect('login')  # Redirect to login page with error message
     else:
-        return render(request, 'login.html')   
-    
+        return render(request, 'login.html')
+
 from .models import Blog
 def blog_view(request):
     # Fetch all blog objects from the database
