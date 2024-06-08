@@ -13,6 +13,7 @@
         .course-container {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             margin-top: 20px;
         }
 
@@ -23,6 +24,7 @@
             text-align: center;
             transition: background-color 0.3s ease;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         .course:hover {
@@ -45,12 +47,58 @@
         .read-more-btn:hover {
             background-color: #3ab43a;
         }
-        .footer{
+
+        .footer {
             background: #c3e6c0;
             padding: 50px 0;
             text-align: center;
             margin-top: auto;
-            width: 1280px;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .course {
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course {
+                flex: 0 0 100%;
+            }
+
+            .read-more-btn {
+                width: 100%;
+            }
+
+            .footer {
+                padding: 20px 0;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .footer {
+                padding: 10px 0;
+            }
+
+            .read-more-btn {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .course {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .footer-text p, .footer-text a {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
