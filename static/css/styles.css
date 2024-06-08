@@ -368,7 +368,7 @@ body {
     padding: 50px 0;
     text-align: center;
     margin-top: auto; /* Pushes the footer to the bottom */
-    width: 1920px;
+    width: 100%;
 }
 
 .footer-logo img {
