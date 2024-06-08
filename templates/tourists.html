@@ -9,6 +9,105 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}"> <!-- Your existing styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style>
+            /* Additional styles for responsiveness */
+    
+            .section-content {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+    
+            .text-content {
+                flex: 1;
+                padding: 10px;
+            }
+    
+            .image-content {
+                flex: 1;
+                padding: 10px;
+                text-align: center;
+            }
+    
+            .section-image {
+                max-width: 100%;
+                height: auto;
+            }
+    
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+    
+            .grid-item {
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+            }
+    
+            .explore-more-btn {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: lightgreen;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .explore-more-btn:hover {
+                background-color: #3ab43a;
+            }
+    
+            /* Footer styles */
+            .footer {
+                background: #c3e6c0;
+                padding: 50px 0;
+                text-align: center;
+                margin-top: auto;
+            }
+    
+            .footer-logo img {
+                max-width: 150px;
+                height: auto;
+            }
+    
+            .footer-social-icons a {
+                margin: 0 10px;
+                color: #333;
+                text-decoration: none;
+            }
+    
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .section-content {
+                    flex-direction: column;
+                }
+    
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+    
+            @media (max-width: 576px) {
+                .footer {
+                    padding: 20px 0;
+                }
+    
+                .footer-logo img {
+                    max-width: 100px;
+                }
+    
+                .footer-text p {
+                    margin: 5px 0;
+                }
+            }
+        </style>
 </head>
 <body>
     <!-- Top Navbar -->
